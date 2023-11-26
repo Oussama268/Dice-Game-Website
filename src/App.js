@@ -10,7 +10,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 function App() {
-/*
+
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -30,7 +30,7 @@ function App() {
 
   const loader = new GLTFLoader();
 
-  loader.load( './Dice.glb', function ( gltf ) {
+  loader.load( 'Dice.glb', function ( gltf ) {
     const model = gltf.scene
     scene.add( model );
 
@@ -55,7 +55,7 @@ function App() {
   renderer.setAnimationLoop(animate)
 
 
-*/
+
   
   return (
     <>
