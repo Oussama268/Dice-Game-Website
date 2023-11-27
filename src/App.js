@@ -111,7 +111,6 @@ function loadanime(face){
   let clip
   let action
   let faceUsedInAnim
-  console.log(face)
   
     switch (face){
       case "1-2-3":
@@ -247,6 +246,7 @@ function initialiser(){
     setNumberTry(0)
     setFaceNow("1-2-3")
     setWin(false)
+    setFirstTry(true)
     setNumberFace(numbers[Math.floor(Math.random() * numbers.length)])
     document.getElementById("dice").innerHTML = ""
 
@@ -260,12 +260,12 @@ const numbers = [1,2,3,4,4,5,5,6,6]
   const [numbertry,setNumberTry] = useState(0)
   const [numberFace,setNumberFace] = useState(numbers[Math.floor(Math.random() * numbers.length)])
   const [win,setWin] = useState(false)
-
+  const [firstTry,setFirstTry] = useState(true)
   
   
 
  let select
-  useEffect(() => {if(facenow.indexOf(numberFace.toString()) != -1){
+  useEffect(() => {if(facenow.indexOf(numberFace.toString()) != -1 && firstTry === false){
     
     setWin(true)
     select = document.getElementById("dice")
@@ -283,8 +283,8 @@ const numbers = [1,2,3,4,4,5,5,6,6]
       <h1>Jeu de Dé...</h1>
       <h3>face : {numberFace}</h3>
       <h3>nombre d'essais : {numbertry}</h3>
-      <button onClick={win ? () => {initialiser()} : () => { 
-        
+      <button onClick={win ? () => {initialiser()} : () => {
+          setFirstTry(false);
           setFaceNow(loadanime(facenow));
           setNumberTry(numbertry => numbertry + 1)
           
