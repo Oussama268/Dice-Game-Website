@@ -115,6 +115,7 @@ function loadanime(face){
   
     switch (face){
       case "1-2-3":
+
         faceUsedInAnim =  face1_2_3[Math.floor(Math.random() * face1_2_3.length)] 
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim)
         action = mixer.clipAction(clip)
@@ -122,6 +123,7 @@ function loadanime(face){
           action.setLoop(THREE.LoopOnce)
           action.clampWhenFinished = true
           action.play() 
+
         }
         
 
@@ -247,6 +249,7 @@ function initialiser(){
     setWin(false)
     setNumberFace(numbers[Math.floor(Math.random() * numbers.length)])
     document.getElementById("dice").innerHTML = ""
+
 }
 
 
@@ -261,11 +264,15 @@ const numbers = [1,2,3,4,4,5,5,6,6]
   
   
 
- useEffect(() => {
-  if(facenow.indexOf(numberFace.toString()) != -1){
+ let select
+  useEffect(() => {if(facenow.indexOf(numberFace.toString()) != -1){
+    
     setWin(true)
-  }
- },[])
+    select = document.getElementById("dice")
+    select.removeChild(select.lastChild)
+    
+  }}, [facenow])
+ 
 
   
   
@@ -279,9 +286,9 @@ const numbers = [1,2,3,4,4,5,5,6,6]
       <button onClick={win ? () => {initialiser()} : () => { 
         
           setFaceNow(loadanime(facenow));
-          setNumberTry(numbertry + 1)
+          setNumberTry(numbertry => numbertry + 1)
           
-        }}>{win == false ? <p>Jouer</p> : <p>initialiser</p>}</button>
+        }}>{win === false ? <p>Jouer</p> : <p>initialiser</p>}</button>
 
         {
           win ? <h5>Bravo vous avez trouvez la face cachée</h5> : <p></p>
