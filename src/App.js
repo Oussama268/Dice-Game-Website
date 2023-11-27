@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -24,7 +24,7 @@ function App() {
   //renderer
   
   const renderer = new THREE.WebGLRenderer();
-  renderer.setSize( window.innerWidth / 3 , window.innerHeight / 3 );
+  renderer.setSize( window.innerWidth / 4 , window.innerHeight / 4 );
   renderer.setClearColor(0xffffff)
   renderer.setPixelRatio(2)
   
@@ -86,7 +86,7 @@ function App() {
   window.addEventListener("resize" , () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth / 3 , window.innerHeight / 3)
+    renderer.setSize(window.innerWidth / 4 , window.innerHeight / 4)
   })
   
   renderer.setAnimationLoop(animate)
@@ -107,6 +107,7 @@ let face5_4_6 = ["5-4-6 to 1-2-3" , "5-4-6 to 1-3-4" ,"5-4-6 to 1-4-5" ,"5-4-6 t
 
 
 function loadanime(face){
+  
   let clip
   let action
   let faceUsedInAnim
@@ -117,10 +118,14 @@ function loadanime(face){
         faceUsedInAnim =  face1_2_3[Math.floor(Math.random() * face1_2_3.length)] 
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim)
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play()
-        console.log(faceUsedInAnim.slice(-5))
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
+
+        
         return faceUsedInAnim.slice(-5)
         break;
 
@@ -128,10 +133,13 @@ function loadanime(face){
         faceUsedInAnim = face1_3_4[Math.floor(Math.random() * face1_3_4.length)] 
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim)
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play()
-        console.log(faceUsedInAnim.slice(-5))
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
+
         return faceUsedInAnim.slice(-5)
         break;
 
@@ -139,10 +147,13 @@ function loadanime(face){
         faceUsedInAnim = face1_4_5[Math.floor(Math.random() * face1_4_5.length)] 
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim)
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play()
-        console.log(faceUsedInAnim.slice(-5))
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
+
         return faceUsedInAnim.slice(-5)
         break;
       
@@ -150,10 +161,13 @@ function loadanime(face){
         faceUsedInAnim = face1_5_2[Math.floor(Math.random() * face1_5_2.length)] 
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim)
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play()
-        console.log(faceUsedInAnim.slice(-5))
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
+
         return faceUsedInAnim.slice(-5)
         break;
 
@@ -161,10 +175,13 @@ function loadanime(face){
         faceUsedInAnim = face3_2_6[Math.floor(Math.random() * face3_2_6.length)]
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim )
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play()
-        console.log(faceUsedInAnim.slice(-5))
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
+
         return faceUsedInAnim.slice(-5)
         break;
 
@@ -172,11 +189,13 @@ function loadanime(face){
         faceUsedInAnim = face3_4_6[Math.floor(Math.random() * face3_4_6.length)]
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim )
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play() 
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
 
-        console.log(faceUsedInAnim.slice(-5))
         return faceUsedInAnim.slice(-5)
         break;
 
@@ -185,11 +204,14 @@ function loadanime(face){
         faceUsedInAnim = face5_2_6[Math.floor(Math.random() * face5_2_6.length)];
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim )
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play() 
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
+        
 
-        console.log(faceUsedInAnim.slice(-5))
         return faceUsedInAnim.slice(-5)
         break;
 
@@ -197,15 +219,18 @@ function loadanime(face){
         faceUsedInAnim = face5_4_6[Math.floor(Math.random() * face5_4_6.length)] 
         clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim )
         action = mixer.clipAction(clip)
-        action.setLoop(THREE.LoopOnce)
-        action.clampWhenFinished = true
-        action.play() 
-        console.log(faceUsedInAnim.slice(-5))
+        if(action){
+          action.setLoop(THREE.LoopOnce)
+          action.clampWhenFinished = true
+          action.play() 
+        }
+        
+
         return faceUsedInAnim.slice(-5)
+        
         break;
       
       
-
 
 
 
@@ -216,25 +241,51 @@ function loadanime(face){
 
 
 
+function initialiser(){
+    setNumberTry(0)
+    setFaceNow("1-2-3")
+    setWin(false)
+    setNumberFace(numbers[Math.floor(Math.random() * numbers.length)])
+    document.getElementById("dice").innerHTML = ""
+}
 
 
 
-
-const numbers = [1,2,3,4,5,6]
+const numbers = [1,2,3,4,4,5,5,6,6]
 
   const [facenow,setFaceNow] = useState("1-2-3");
   const [numbertry,setNumberTry] = useState(0)
-  const [number,setNumber] = useState(numbers[Math.floor(Math.random() * numbers.length)])
+  const [numberFace,setNumberFace] = useState(numbers[Math.floor(Math.random() * numbers.length)])
+  const [win,setWin] = useState(false)
+
   
+  
+
+ useEffect(() => {
+  if(facenow.indexOf(numberFace.toString()) != -1){
+    setWin(true)
+  }
+ },[])
+
+  
+  
+ 
+
   return (
     <div>
       <h1>Jeu de Dé...</h1>
-      <h3>face : {number}</h3>
+      <h3>face : {numberFace}</h3>
       <h3>nombre d'essais : {numbertry}</h3>
-      <button onClick={() => { 
-        setFaceNow(loadanime(facenow))
+      <button onClick={win ? () => {initialiser()} : () => { 
+        
+          setFaceNow(loadanime(facenow));
+          setNumberTry(numbertry + 1)
           
-        }}></button>
+        }}>{win == false ? <p>Jouer</p> : <p>initialiser</p>}</button>
+
+        {
+          win ? <h5>Bravo vous avez trouvez la face cachée</h5> : <p></p>
+        }
     </div>
     
    
