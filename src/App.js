@@ -53,7 +53,7 @@ function App() {
   
   let mixer;
   let clips ;
-  loader.load( 'Dice4.glb', function ( gltf ) {
+  loader.load( 'Dice_last.glb', function ( gltf ) {
   
     const model = gltf.scene
     scene.add( model );
@@ -94,7 +94,25 @@ function App() {
 
 //React logic
 
+let faces = ["1 to 1" , "1 to 2" , "1 to 3", "1 to 4", "1 to 5", "1 to 6" ]
+function loadanime(face){
+  
+  let clip
+  let action
+  let faceUsedInAnim
+  faceUsedInAnim =  faces[Math.floor(Math.random() * faces.length)] 
+  clip = THREE.AnimationClip.findByName(clips , faceUsedInAnim)
+  action = mixer.clipAction(clip)
+  if(action){
+    action.setLoop(THREE.LoopOnce)
+    action.clampWhenFinished = true
+    action.play()
+  }
+  return faceUsedInAnim.slice(-1)
 
+}
+
+/*
 let face1_2_3 = ["1-2-3 to 1-3-4" , "1-2-3 to 1-4-5" ,"1-2-3 to 1-5-2" ,"1-2-3 to 3-2-6" ,"1-2-3 to 3-4-6" , "1-2-3 to 5-2-6" , "1-2-3 to 5-4-6" ];
 let face1_3_4 = ["1-3-4 to 1-2-3" , "1-3-4 to 1-4-5" ,"1-3-4 to 1-5-2" ,"1-3-4 to 3-2-6" ,"1-3-4 to 3-4-6" , "1-3-4 to 5-2-6" , "1-3-4 to 5-4-6" ];
 let face1_4_5 = ["1-4-5 to 1-2-3" , "1-4-5 to 1-3-4" ,"1-4-5 to 1-5-2" ,"1-4-5 to 3-2-6" ,"1-4-5 to 3-4-6" , "1-4-5 to 5-2-6" , "1-4-5 to 5-4-6" ];
@@ -241,12 +259,12 @@ function loadanime(face){
     
 
 }
-
+*/
 
 
 function initialiser(){
     setNumberTry(0)
-    setFaceNow("1-2-3")
+    setFaceNow("1")
     setWin(false)
     setFirstTry(true)
     setNumberFace(numbers[Math.floor(Math.random() * numbers.length)])
@@ -258,7 +276,7 @@ function initialiser(){
 
 const numbers = [1,2,3,4,4,5,5,6,6]
 
-  const [facenow,setFaceNow] = useState("1-2-3");
+  const [facenow,setFaceNow] = useState("1");
   const [numbertry,setNumberTry] = useState(0)
   const [numberFace,setNumberFace] = useState(numbers[Math.floor(Math.random() * numbers.length)])
   const [win,setWin] = useState(false)
