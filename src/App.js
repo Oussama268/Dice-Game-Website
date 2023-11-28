@@ -32,9 +32,9 @@ function App() {
   
   
   document.getElementById("dice").appendChild(renderer.domElement)
-  camera.position.set(3.3,3.2,-3)
+  camera.position.set(3.3,5,-3)
   camera.rotateY(2.3)
-  camera.rotateX(-0.5)
+  camera.rotateX(-0.8)
   
   
   const light = new THREE.AmbientLight(0x404040,50)
@@ -181,7 +181,9 @@ function loadanime(face){
           action.clampWhenFinished = true
           action.play() 
         }
+
         
+
 
         return faceUsedInAnim.slice(-5)
         break;
@@ -261,7 +263,6 @@ const numbers = [1,2,3,4,4,5,5,6,6]
   const [numberFace,setNumberFace] = useState(numbers[Math.floor(Math.random() * numbers.length)])
   const [win,setWin] = useState(false)
   const [firstTry,setFirstTry] = useState(true)
-  
   
 
  let select
