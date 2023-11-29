@@ -312,6 +312,7 @@ const numbers = [1,2,3,4,4,5,5,6,6]
         {
           win ? <h5>Bravo vous avez trouvez la face cachée</h5> : <p></p>
         }
+        
     </div>
     
    
