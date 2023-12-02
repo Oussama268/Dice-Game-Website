@@ -283,6 +283,8 @@ const numbers = [1,2,3,4,4,5,5,6,6]
   const [firstTry,setFirstTry] = useState(true)
   
 
+
+  
  let select
   useEffect(() => {if(facenow.indexOf(numberFace.toString()) != -1 && firstTry === false){
     
