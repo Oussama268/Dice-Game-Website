@@ -14,6 +14,8 @@ import ReactDOM from 'react-dom/client';
 
 function App() {
 
+
+  //scene,camera
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
   
@@ -31,14 +33,18 @@ function App() {
   /* document.body.appendChild( renderer.domElement );*/
   
   
+  
   document.getElementById("dice").appendChild(renderer.domElement)
+
+
+  //Camera(rotation,position)
   camera.position.set(3.3,5,-3)
   camera.rotateY(2.3)
   camera.rotateX(-0.8)
   
-  
+
+  //Light
   const light = new THREE.AmbientLight(0x404040,50)
-  
   scene.add(light)
   
   
@@ -46,13 +52,14 @@ function App() {
   //const controls =  new OrbitControls(camera, renderer.domElement)
   
   
-  
-  const loader = new GLTFLoader();
-  
-  
-  
   let mixer;
   let clips ;
+
+
+
+  //load 3d module
+  const loader = new GLTFLoader();
+
   loader.load( 'Dice_last.glb', function ( gltf ) {
   
     const model = gltf.scene
@@ -67,13 +74,21 @@ function App() {
   
   } );
   
+
+
   /*
   const grid = new THREE.GridHelper(30 , 30)
   scene.add(grid)
   */
   
-  
+
+
+  //clock timer for animations
   const clock = new THREE.Clock()
+
+
+
+  //render loop func
   function animate() {
     if(mixer){
       mixer.update(clock.getDelta())
@@ -82,15 +97,23 @@ function App() {
     renderer.render( scene, camera );
   }
   
-  
+ 
+
+  //Responsible(resize)
   window.addEventListener("resize" , () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth / 4 , window.innerHeight / 4)
   })
   
+
+
+  //call render loop func
   renderer.setAnimationLoop(animate)
   
+
+
+
 
 //React logic
 
