@@ -1,11 +1,10 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import ReactDOM from 'react-dom/client';
+
 
 
 
@@ -59,6 +58,7 @@ function App() {
 
   //load 3d module
   const loader = new GLTFLoader();
+
 
   loader.load( 'Dice_last.glb', function ( gltf ) {
   
@@ -287,6 +287,8 @@ function loadanime(face){
 */
 
 
+
+
 function initialiser(){
     setNumberTry(0)
     setFaceNow("1")
@@ -294,6 +296,7 @@ function initialiser(){
     setFirstTry(true)
     setNumberFace(numbers[Math.floor(Math.random() * numbers.length)])
     document.getElementById("dice").innerHTML = ""
+
 
 }
 
