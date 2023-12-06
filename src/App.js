@@ -26,9 +26,10 @@ function App() {
   
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize( window.innerWidth / 4 , window.innerHeight / 4 );
-  renderer.setClearColor(0xffffff)
   renderer.setPixelRatio(2)
+  renderer.setClearColor(0xffffff)
   
+
   /* document.body.appendChild( renderer.domElement );*/
   
   
