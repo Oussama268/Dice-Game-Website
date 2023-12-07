@@ -95,7 +95,9 @@ function App() {
     if(mixer){
       mixer.update(clock.getDelta())
     }
-    
+    if(windoww.innerWidth > 400){
+      camera.position.z = -5
+    }
     renderer.render( scene, camera );
   }
   
@@ -106,6 +108,7 @@ function App() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth / 5 , window.innerHeight / 5)
+    
   })
   
 
