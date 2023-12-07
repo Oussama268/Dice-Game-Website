@@ -95,9 +95,6 @@ function App() {
     if(mixer){
       mixer.update(clock.getDelta())
     }
-    if(window.innerWidth > 400){
-      camera.position.z = 1
-    }
     renderer.render( scene, camera );
   }
   
