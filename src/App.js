@@ -62,7 +62,7 @@ function App() {
   const loader = new GLTFLoader();
 
 
-  loader.load( 'Dice_last.glb', function ( gltf ) {
+  loader.load( 'Dice.glb', function ( gltf ) {
   
     const model = gltf.scene
     scene.add( model );
