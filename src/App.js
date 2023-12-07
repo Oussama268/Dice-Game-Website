@@ -101,6 +101,7 @@ function App() {
       camera.position.z = -4.5
       camera.position.x = 5
       camera.position.y = 6
+      renderer.setPixelRatio(1)
     }
 
     renderer.render( scene, camera );
