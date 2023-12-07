@@ -1,9 +1,10 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-
+import "./App.css"
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import Rules from './Rules';
 
 
 
@@ -325,11 +326,22 @@ const numbers = [1,2,3,4,4,5,5,6,6]
  
 
   
+  function Close(){
+    setBlured("none")
+    setDisplay("none")
+    select = document.getElementById("dice")
+    select.removeChild(select.lastChild)
   
- 
+  }
+  const [display, setDisplay] = useState('block') 
+  const [blured, setBlured] = useState('blur(4px)') 
 
+ 
   return (
-    <div>
+    <>
+      <Rules close={Close} display={display}/>
+
+    <div style={{filter : blured}} className='app'>
       <h1>Jeu de Dé...</h1>
       <h3>face : {numberFace}</h3>
       <h3>nombre d'essais : {numbertry}</h3>
@@ -347,7 +359,7 @@ const numbers = [1,2,3,4,4,5,5,6,6]
     </div>
     
    
-    
+    </>
   );
 }
 
