@@ -342,18 +342,18 @@ const numbers = [1,2,3,4,4,5,5,6,6]
       <Rules close={Close} display={display}/>
 
     <div style={{filter : blured}} className='app'>
-      <h1>Jeu de Dé...</h1>
+      <h1>Dice game...</h1>
       <h3>face : {numberFace}</h3>
-      <h3>nombre d'essais : {numbertry}</h3>
+      <h3>number of attempts : {numbertry}</h3>
       <button onClick={win ? () => {initialiser()} : () => {
           setFirstTry(false);
           setFaceNow(loadanime(facenow));
           setNumberTry(numbertry => numbertry + 1)
           
-        }}>{win === false ? <p>Jouer</p> : <p>initialiser</p>}</button>
+        }}>{win === false ? <p>Play</p> : <p>Reset</p>}</button>
 
         {
-          win ? <h5>Bravo vous avez trouvez la face cachée</h5> : <p></p>
+          win && <h2>Congrats You found the hidden face </h2> 
         }
         
     </div>
