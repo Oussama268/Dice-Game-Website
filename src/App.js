@@ -43,6 +43,7 @@ function App() {
   camera.rotateY(2.3)
   camera.rotateX(-0.8)
   
+  
 
   //Light
   const light = new THREE.AmbientLight(0x404040,50)
@@ -95,6 +96,13 @@ function App() {
     if(mixer){
       mixer.update(clock.getDelta())
     }
+    
+    if(window.innerWidth < 500){
+      camera.position.z = -4.5
+      camera.position.x = 5
+      camera.position.y = 6
+    }
+
     renderer.render( scene, camera );
   }
   
