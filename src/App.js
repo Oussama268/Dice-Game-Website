@@ -120,6 +120,7 @@ function App() {
 
 
   //call render loop func
+  //loop
   renderer.setAnimationLoop(animate)
   
 
