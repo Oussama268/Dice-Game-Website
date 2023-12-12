@@ -344,12 +344,14 @@ const numbers = [1,2,3,4,4,5,5,6,6]
   
   }
   const [display, setDisplay] = useState('block') 
+  
   const [blured, setBlured] = useState('blur(4px)') 
 
  
   return (
     <>
       <Rules close={Close} display={display}/>
+
 
     <div style={{filter : blured}} className='app'>
       <h1>Dice game...</h1>
