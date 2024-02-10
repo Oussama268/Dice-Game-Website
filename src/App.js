@@ -37,6 +37,10 @@ function App() {
   
   document.getElementById("dice").appendChild(renderer.domElement)
 
+  //Light
+  const light = new THREE.AmbientLight(0x404040,50)
+  scene.add(light)
+  
 
   //Camera(rotation,position)
   camera.position.set(3.3,5,-3)
@@ -45,9 +49,7 @@ function App() {
   
   
 
-  //Light
-  const light = new THREE.AmbientLight(0x404040,50)
-  scene.add(light)
+  
   
   
   
@@ -63,7 +65,7 @@ function App() {
   const loader = new GLTFLoader();
 
 
-  loader.load( 'Dice.glb', function ( gltf ) {
+  loader.load( './Dice-Game-Website/Dice.glb', function ( gltf ) {
   
     const model = gltf.scene
     scene.add( model );
@@ -355,15 +357,16 @@ const numbers = [1,2,3,4,4,5,5,6,6]
 
 
     <div style={{filter : blured}} className='app'>
-      <h1>Dice game...</h1>
-      <h3>face : {numberFace}</h3>
-      <h3>number of attempts : {numbertry}</h3>
-      <button onClick={win ? () => {initialiser()} : () => {
+      <h1 className={display=="none" ? "anim" : ""}>Dice game...</h1>
+      
+      <h3 className={display=="none" ? "anim" : ""}>face : {numberFace}</h3>
+      <h3 className={display=="none" ? "anim" : ""}>number of attempts : {numbertry}</h3>
+      <button className={display=="none" ? "anim" : ""} onClick={win ? () => {initialiser()} : () => {
           setFirstTry(false);
           setFaceNow(loadanime(facenow));
           setNumberTry(numbertry => numbertry + 1)
           
-        }}>{win === false ? <p>Play</p> : <p>Reset</p>}</button>
+        }}>{win === false ? <>Play</> : <>Reset</>}</button>
 
         {
           win && <h2>Congrats You found the hidden face </h2> 
