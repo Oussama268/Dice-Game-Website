@@ -31,7 +31,7 @@ function App() {
   renderer.setClearColor(0xffffff)
   
 
-  /* document.body.appendChild( renderer.domElement );*/
+
   
   
   
