@@ -75,7 +75,7 @@ function App() {
   
   }, undefined, function ( error ) {
   
-  console.error( error );
+ 
   
   } );
   
